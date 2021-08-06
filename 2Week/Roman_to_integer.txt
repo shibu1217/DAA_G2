@@ -1,0 +1,37 @@
+//Roman to interger
+class Solution {
+public:
+    int romanToInt(string s) {
+      map<char,int>rm;
+        rm['I']=1;
+        rm['V']=5;
+        rm['X']=10;
+        rm['L']=50;
+        rm['C']=100;
+        rm['D']=500;
+        rm['M']=1000;
+        
+        int temp=0,i=0;
+        if(s.length()<=1)
+            return rm[s.at(0)];
+        else
+        {
+            while(i<s.size())
+            {
+                if(rm[s[i]]<rm[s[i+1]])
+                {
+                    temp+=rm[s[i+1]]-rm[s[i]];
+                    i+=2;
+                }
+                else
+                {
+                    temp+=rm[s[i]];
+                    i++;
+                }
+                    
+            }
+            return temp;
+        }
+        }
+        
+};
