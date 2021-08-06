@@ -1,0 +1,103 @@
+// lps min no of deletion
+
+#include<bits/stdc++.h>
+
+
+using namespace std;
+
+
+
+int static t[1001][1001];
+
+
+
+int lcs(string x,string y,int n,int m)
+{
+
+
+ int i,j;   
+
+ 
+
+for(i=0;i<=n;i++)
+{
+ 
+ 
+  for(j=0;j<=m;j++)
+ 
+   {
+   
+  
+if(i==0||j==0)
+       
+   
+t[i][j]==0;
+  
+  }
+        
+        
+  
+ 
+}
+
+
+
+for(i=1;i<=n;i++)
+{
+ 
+ 
+  for(j=1;j<=m;j++)
+    {
+ 
+       
+
+if(x[i-1]==y[j-1])
+ t[i][j]=1+t[i-1][j-1];
+
+
+else
+t[i][j]=max(t[i][j-1],t[i-1][j]);
+   
+ 
+}
+}
+//if(x==x,(reverse(x)))
+ 
+ return t[n][m];
+
+}
+
+
+
+int main()
+{
+ 
+
+  //memset(t,0, sizeof(t));
+ 
+   string x={"aggcba"};
+  
+  string y;
+    int n,m;
+   
+ cin>>x>>y;
+ 
+   n=x.length();
+  
+  y = string(x.rbegin(),x.rend());
+  
+  m=y.length();
+   
+ int result=lcs(x,y,n,m);
+  
+  int mile=n-result;
+   
+ cout<<mile;
+  
+  return 0;
+
+  
+ 
+ return 0;
+
+}
